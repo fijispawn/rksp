@@ -3,7 +3,7 @@ import './App.css';
 import Header from './components/Header/Header';
 import Navbar from './components/Navbar/Navbar';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
-import Month_first from './components/Month/Month_first';
+import MonthFirst from './components/Month/MonthFirst';
 
 
 const HomePage = (props) => {
@@ -21,8 +21,8 @@ const App = (props) => {
                 <Route path='/'
                         element={<HomePage />} />
 
-                    <Route exact path='/id:'
-                        element={<Month_first  />} />      
+                    <Route exact path='/:id'
+                        element={<MonthFirst  />} />
                    
                 </Routes>
     </BrowserRouter>
