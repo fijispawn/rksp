@@ -6,6 +6,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import Month_first from './components/Month/Month_first';
 
 
+
 const HomePage = (props) => {
     return (
      <div className='app-wrapper' >
@@ -18,14 +19,15 @@ const App = (props) => {
 
     return <BrowserRouter>
                 <Routes>
-                <Route path='/'
+                <Route exact path="/"
                         element={<HomePage />} />
 
-                    <Route exact path='/id:'
-                        element={<Month_first  />} />      
-                   
+                    <Route  path="/:id"
+                        element={<Month_first />} />      
                 </Routes>
     </BrowserRouter>
+
+   
 }
 
 export default App;

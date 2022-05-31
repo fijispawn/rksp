@@ -1,31 +1,42 @@
 import React from 'react';
-import  './Month.modules.css';
+import axios from 'axios';
+import './Month.modules.css';
 import { NavLink } from 'react-router-dom';
-import {useRouteMatch} from 'react-router-dom';
-import {useEffect, useState} from 'react';
+//import {useRouteMatch} from 'react-router-dom';
+import { useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 
-const Month_first = (props) => {
-const { url } = useRouteMatch();
-const idArr = url.split('/');
-const id= idArr[idArr.length - 1];
-const [data, setData] = useState('')
-useEffect(() => {
-    const instance = axios.create({
-        baseURL: 'http://127.0.0.1:8000/api/prognosis/'
+const MonthFirst = (props) => {
+    //const { url } = useRouteMatch();
+    //const idArr = url.split('/');
+    //const id= idArr[idArr.length - 1];
+    let { id } = useParams();
+    console.log('id:', id)
+    const [data, setData] = useState('')
+    useEffect(() => {
+        const instance = axios.create({
+            withCredentials: true,
+            headers: {
+                'credentials': 'include',
+                'content-type': 'application/json'
+            },
+            baseURL: 'http://127.0.0.1:8000/api/prognosis/'
         })
-        instance.get(`2`).then(response => {
+        instance.get(id).then(response => {
+            console.log(response);
             setData(response.data);
-            })
-}, 
-[]);
+        })
+
+    },
+        []);
     return (
-     <div className='app-wrapper' >
-        <h1 className = 'Prognosys'>Ваш прогноз:</h1>
-        <NavLink to='/'><button className = 'back'>Вернуться</button> </NavLink>   
-        <div className='app-wrapper-content'>
+        <div className='app-wrapper' >
+            <h1 className='Prognosys'>Ваш прогноз:</h1>
+            <NavLink to='/'><button className='back'>Вернуться</button> </NavLink>
+            <div className='app-wrapper-content'>
+            </div>
         </div>
-    </div>
     )
 }
 
-export  default Month_first;
+export default MonthFirst;

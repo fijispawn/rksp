@@ -3,11 +3,11 @@ import s from './Navbar.module.css';
 import { NavLink } from 'react-router-dom';
 
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <div>
       <div className={s.item}>
-        < NavLink to="/1" activeClassName = {s.active}><img src='https://i2.wp.com/www.pnglib.com/wp-content/uploads/2021/02/aries-black-logo-png_6020da6e35217.png?fit=800%2C800&ssl=1' /></NavLink>
+        < NavLink to="/1" className = {s.active}><img src='https://i2.wp.com/www.pnglib.com/wp-content/uploads/2021/02/aries-black-logo-png_6020da6e35217.png?fit=800%2C800&ssl=1' /></NavLink>
       </div>
       <div className={`${s.item} ${s.active}`}>
         < NavLink to = "/2"><img src='https://pngimg.com/uploads/taurus/taurus_PNG51.png' /></NavLink>
