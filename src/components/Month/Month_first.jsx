@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import './Month.modules.css';
+import './MonthFirst.modules.css';
 import { NavLink } from 'react-router-dom';
 //import {useRouteMatch} from 'react-router-dom';
 import { useParams } from 'react-router-dom';
@@ -20,7 +20,7 @@ const MonthFirst = (props) => {
                 'credentials': 'include',
                 'content-type': 'application/json'
             },
-            baseURL: 'http://127.0.0.1:8000/api/prognosis/'
+            baseURL: 'http://127.0.0.1:8000/api/prognosis'
         })
         instance.get(id).then(response => {
             console.log(response);
