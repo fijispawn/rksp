@@ -12,7 +12,10 @@ const MonthFirst = (props) => {
     //const id= idArr[idArr.length - 1];
     let { id } = useParams();
     console.log('id:', id)
-    const [data, setData] = useState('')
+    const [data, setData] = useState({
+        prognosis_text: "",
+        zodiac_sign: ""
+    })
     useEffect(() => {
         const instance = axios.create({
             withCredentials: true,
@@ -31,7 +34,10 @@ const MonthFirst = (props) => {
         []);
     return (
         <div className='app-wrapper' >
-            <h1 className='Prognosys'>Ваш прогноз:</h1>
+            <h1 className='Zodiac'>Прогноз для {data.zodiac_sign}</h1>
+            <div className='Prognosis_text'>
+                {data.prognosis_text}
+            </div>
             <NavLink to='/'><button className='back'>Вернуться</button> </NavLink>
             <div className='app-wrapper-content'>
             </div>
